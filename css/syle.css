@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    padding: 1rem;
+}
+
+#form-firma{
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#firma{
+    height: 100;
+    width: 300;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+#btnLimpiar{
+    color: #000;
+}
+
+#btnGenerarDocumento{
+    width: 100%;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
