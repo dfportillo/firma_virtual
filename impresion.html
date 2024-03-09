@@ -22,11 +22,11 @@
     <img src="" alt="Firma del usuario" id="firma">
     <br>
     <script>
-        if (window.opener) {
-            document.querySelector("#firma").src = window.opener.obtenerImagen();
-            // Imprimir documento. Si no quieres imprimir, remueve la siguiente línea
-            window.print();
-        }
+        window.addEventListener("DOMContentLoaded", function () {
+            if (window.opener) {
+                document.querySelector("#firma").src = localStorage.getItem("firma");
+            }
+        });
     </script>
 </body>
 
