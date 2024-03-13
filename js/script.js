@@ -64,8 +64,13 @@ const limpiarCanvas = () => {
     contexto.fillRect(0, 0, canvas.width, canvas.height);
 };
 limpiarCanvas();
-btnLimpiar.onclick = limpiarCanvas;
-
+btnLimpiar.onclick = () => {
+    // Limpiar el canvas
+    limpiarCanvas();
+    
+    // Borrar la imagen del localStorage
+    localStorage.removeItem('firma');
+};
 btnDescargar.onclick = () => {
     const enlace = document.createElement('a');
     enlace.download = 'Firma.png';
@@ -80,23 +85,27 @@ window.obtenerImagen = () => {
 btnGenerarDocumento.onclick = () => {
     let imagen = canvas.toDataURL();
     localStorage.setItem('firma', imagen);
-    console.log('imagen', imagen);
+    // Mostrar el modal
+    document.querySelector('#exampleModal').classList.add('show');
 
-    window.open('impresion.html');
+    // Establecer la imagen en el modal
+    document.getElementById('firmaModal').src = imagen;
 };
 
-//? intento de cambiar el cursor situado en el canvas
-//? no funciona
-// Cuando el cursor entra en el área del canvas
-canvas.addEventListener('mouseenter', function () {
-    // Cambiar el cursor a una imagen personalizada
-    console.log('el mouse esta en la firma');
-    canvas.style.cursor = 'url(pen.jpg), pointer';
-});
+// //? intento de cambiar el cursor situado en el canvas
+// //? no funciona
+// // Cuando el cursor entra en el área del canvas
+// canvas.addEventListener('mouseenter', function () {
+//     // Cambiar el cursor a una imagen personalizada
+//     // console.log('el mouse esta en la firma');
+//     canvas.style.cursor = 'url(./css/pen.jpg), pointer';
+// });
 
-// Cuando el cursor sale del área del canvas
-canvas.addEventListener('mouseleave', function () {
-    // Restaurar el cursor predeterminado
-    console.log('el cursor salio del chat');
-    canvas.style.cursor = 'auto';
-});
+
+
+// // Cuando el cursor sale del área del canvas
+// canvas.addEventListener('mouseleave', function () {
+//     // Restaurar el cursor predeterminado
+//     // console.log('el cursor salio del chat');
+//     canvas.style.cursor = 'auto';
+// });
